@@ -1,5 +1,5 @@
 -- Remember, no skidding B)
-if Drawing then print("get a better executor lol") else end
+if Drawing then else return print("get a better executor lol") end
 cred = Drawing.new("Text")
 cred.Text = ("Fake Macro Speed Glitch Executed\nCreated by Vanis#0001 | https://discord.gg/Cvq7ZU5TTR\nMake sure to turn on Low GFX")
 cred.Color = Color3.new(1, 1, 1)
