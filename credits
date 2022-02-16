@@ -1,0 +1,10 @@
+text = Drawing.new('Text');
+text.Text = 'Fake Macro Speed Glitch Executed\nCreated by Vanis#0001 | https://discord.gg/Cvq7ZU5TTR\nMake sure to turn on Low GFX';
+text.Color = Color3.new(1, 1, 1);
+text.OutlineColor = Color3.new(0, 0, 0);
+text.Center = true;
+text.Outline = true;
+text.Position = Vector2.new(270, 100);
+text.Size = 20;
+text.Font = Drawing.Fonts.Monospace;
+text.Transparency = 0.9
