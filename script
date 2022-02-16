@@ -29,6 +29,7 @@ if input.KeyCode == Key then
         end
     end
     wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "S", false, game)
         while toggle == true do wait(0.01)
     game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait(0.01)
     game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) wait(0.01)
