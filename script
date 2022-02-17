@@ -30,7 +30,8 @@ if input.KeyCode == Key then
     end
     wait()
     game:GetService("VirtualInputManager"):SendKeyEvent(true, "S", false, game)
-        while toggle == true do wait(0.01)
+    spawn(function()
+while toggle == true do wait(0.01)
     game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait(0.01)
     game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) wait(0.01)
     game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait(0.01)
@@ -38,10 +39,16 @@ if input.KeyCode == Key then
     game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait(0.01)
     game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) wait(0.01)
 end
+	end)
+	Impostor =
+		game:service'Players'.LocalPlayer.Character:findFirstChildOfClass'Humanoid'.Running:Connect(function()
+			game:service'Players'.LocalPlayer.Character:findFirstChildOfClass'Humanoid':LoadAnimation(game:GetService("ReplicatedStorage"):findFirstChild("ClientAnimations"):findFirstChild("Greet")):Stop()
+		end)
         else
         toggle = false
         game:service'Players'.LocalPlayer.Character:findFirstChildOfClass'Humanoid':LoadAnimation(game:GetService("ReplicatedStorage"):findFirstChild("ClientAnimations"):findFirstChild("Greet")):Stop()
         game:GetService("ReplicatedStorage"):findFirstChild("ClientAnimations"):findFirstChild("Greet"):Remove()
+        Impostor:Disconnect()
     end
 end
 end
