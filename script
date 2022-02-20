@@ -12,9 +12,11 @@ cred.Font = Drawing.Fonts.Monospace
 cred.Transparency = 0.9
 wait(2)
 cred:Remove()
-game:GetService("UserInputService").InputBegan:Connect(function(input)
+game:GetService("UserInputService").InputBegan:Connect(function(input,chatting)
 if input.UserInputType == Enum.UserInputType.Keyboard then
-if input.KeyCode == Key then
+if chatting then IsChatting = true else IsChatting = false end
+if input.KeyCode == Enum.KeyCode.Q then
+	if IsChatting ~= false then return end
     if not toggle then
         toggle = true
     Instance.new("Animation", game:GetService("ReplicatedStorage"):findFirstChild("ClientAnimations")).Name = 'Greet'
@@ -31,13 +33,13 @@ if input.KeyCode == Key then
     wait()
     game:GetService("VirtualInputManager"):SendKeyEvent(true, "S", false, game)
     spawn(function()
-while toggle == true do wait(0.01)
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait(0.01)
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) wait(0.01)
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait(0.01)
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) wait(0.01)
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait(0.01)
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) wait(0.01)
+while toggle == true do wait(0.001)
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait(0.001)
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) wait(0.001)
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait(0.001)
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) wait(0.001)
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait(0.001)
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) wait(0.001)
 end
 	end)
 	Impostor =
