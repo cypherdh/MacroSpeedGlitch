@@ -15,7 +15,7 @@ cred:Remove()
 game:GetService("UserInputService").InputBegan:Connect(function(input,chatting)
 if input.UserInputType == Enum.UserInputType.Keyboard then
 if chatting then IsChatting = true else IsChatting = false end
-if input.KeyCode == Enum.KeyCode.Q then
+if input.KeyCode == Key then
 	if IsChatting ~= false then return end
     if not toggle then
         toggle = true
