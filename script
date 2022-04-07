@@ -1,22 +1,7 @@
--- Remember, no skidding B)
-if Drawing then else return print("get a better executor lol") end
-cred = Drawing.new("Text")
-cred.Text = ("Fake Macro Speed Glitch Executed\nCreated by Vanis#0001 | https://discord.gg/Cvq7ZU5TTR\nMake sure to turn on Low GFX")
-cred.Color = Color3.new(1, 1, 1)
-cred.OutlineColor = Color3.new(0, 0, 0)
-cred.Center = true
-cred.Outline = true
-cred.Position = Vector2.new(270, 100)
-cred.Size = 20
-cred.Font = Drawing.Fonts.Monospace
-cred.Transparency = 0.9
-wait(2)
-cred:Remove()
 game:GetService("UserInputService").InputBegan:Connect(function(input,chatting)
 if input.UserInputType == Enum.UserInputType.Keyboard then
-if chatting then IsChatting = true else IsChatting = false end
-if input.KeyCode == Key then
-	if IsChatting ~= false then return end
+if chatting then return end
+if input.KeyCode == Enum.KeyCode[getgenv()["Key To Macro Speed"]:upper()] then
     if not toggle then
         toggle = true
     Instance.new("Animation", game:GetService("ReplicatedStorage"):findFirstChild("ClientAnimations")).Name = 'Greet'
@@ -26,31 +11,68 @@ if input.KeyCode == Key then
         game:service'Players'.LocalPlayer.Character:findFirstChildOfClass'Humanoid':LoadAnimation(game:GetService("ReplicatedStorage"):findFirstChild("ClientAnimations"):findFirstChild("Greet")):Stop()
         wait()
     for i, v in next, game:GetService("Players").LocalPlayer.Backpack:GetChildren() do
-        if v:IsA("Tool") and v.Name ~= "Combat" or v.Name ~= "[Boombox]" then
+        if v:IsA("Tool") and v.Name ~= "Combat" and v.Name ~= "[Boombox]" then
             game:GetService("Players").LocalPlayer.Character:findFirstChildOfClass'Humanoid':EquipTool(v)
         end
     end
     wait()
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, "S", false, game)
+    if getgenv()["Auto Crouch"] == true then
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, "LeftControl", false, game)
+    end
+    wait()
     spawn(function()
-while toggle == true do wait(0.001)
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait(0.001)
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) wait(0.001)
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait(0.001)
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) wait(0.001)
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait(0.001)
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) wait(0.001)
+if getgenv()["Speed"] == "God Speed" then
+    repeat game:GetService("RunService").RenderStepped:wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) game:GetService("RunService").RenderStepped:wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) game:GetService("RunService").RenderStepped:wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) game:GetService("RunService").RenderStepped:wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) game:GetService("RunService").RenderStepped:wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) game:GetService("RunService").RenderStepped:wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) game:GetService("RunService").RenderStepped:wait()
+    until toggle == false
+elseif getgenv()["Speed"] == "Normal" then
+    repeat wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) wait()
+    until toggle == false
 end
 	end)
 	Impostor =
 		game:service'Players'.LocalPlayer.Character:findFirstChildOfClass'Humanoid'.Running:Connect(function()
 			game:service'Players'.LocalPlayer.Character:findFirstChildOfClass'Humanoid':LoadAnimation(game:GetService("ReplicatedStorage"):findFirstChild("ClientAnimations"):findFirstChild("Greet")):Stop()
 		end)
+	Impostor2 =
+            game:service'Players'.LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("Sit"):Connect(function()
+                game:GetService("VirtualInputManager"):SendKeyEvent(true, getgenv()["Key To Macro Speed"], false, game)
+                if getgenv()["Auto Crouch"] == true then
+                    game:GetService("VirtualInputManager"):SendKeyEvent(true, "LeftControl", false, game)
+                end
+            end)
         else
         toggle = false
         game:service'Players'.LocalPlayer.Character:findFirstChildOfClass'Humanoid':LoadAnimation(game:GetService("ReplicatedStorage"):findFirstChild("ClientAnimations"):findFirstChild("Greet")):Stop()
         game:GetService("ReplicatedStorage"):findFirstChild("ClientAnimations"):findFirstChild("Greet"):Remove()
         Impostor:Disconnect()
+        Impostor2:Disconnect()
+    end
+end
+if input.KeyCode == Enum.KeyCode[getgenv()["Key To Macro Abuse"]:upper()] then
+    if not macroabuse then
+        macroabuse = true
+        while macroabuse == true do wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game) wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game) wait()
+        end
+    else
+        macroabuse = false
     end
 end
 end
